@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=], initial-scale=1.0">
+	<title>Lista de Livro</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+
+	<div class="container-fluid p-4 text-white text-cente bg-dark fs-3" style="text-align: center;">
+		Lista de Livros
+	</div>
+
+	<div class="container" style="text-align: center; margin-top: 70px;">
+		<div class="m-2">
+			<a class="h3" th:href="@{/livro/criar}">Adicionar Livro</a>
+		</div>
+		<table class="table table-dark table-striped">
+			<thead>
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">Titulo</th>
+					<th scope="col">Autor</th>
+					<th scope="col">Sinópse</th>
+					<th scope="col">Gênero</th>
+					<th scope="col">Ação</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="livro: ${livro}">
+					<td th:text="${livro.id}"></td>
+					<td th:text="${livro.titulo}"></td>
+					<td th:text="${livro.autor}"></td>
+					<td th:text="${livro.sinopse}"></td>
+					<td th:text="${livro.genero.descricao}"></td>
+					<td>
+						<a class="h6 mr-3" th:href="@{'/livro/editar/' + ${livro.id}}">Editar</a>
+						<a class="h6" th:href="@{'/livro/deletar/' + ${livro.id}}">Deletar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+
+</html>
