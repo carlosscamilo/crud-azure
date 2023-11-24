@@ -22,7 +22,7 @@ public class Livro {
     @Column(nullable = false)
     private String titulo;
 
-    @Column(nullable = true)
+    @Column(nullable = true, columnDefinition = "TEXT")
     private String sinopse;
 
     @Column(nullable = false)

@@ -14,7 +14,7 @@ import com.biblioteca.bibliotecaCrud.model.Genero;
 import com.biblioteca.bibliotecaCrud.service.GeneroService;
 
 @Controller
-@RequestMapping("/genero")
+@RequestMapping("/")
 public class GeneroController {
 	
 	@Autowired
@@ -27,25 +27,25 @@ public class GeneroController {
         return "listarGenero";
     }
     
-    @GetMapping("/criar")
+    @GetMapping("/genero/criar")
 	public String getCreatePage(final Model model) {
     	model.addAttribute("genero", new Genero()); 
     	return "criarGenero";
     }
     
-    @GetMapping("/editar/{id}")
+    @GetMapping("/genero/editar/{id}")
 	public String getEditGeneroPage(@PathVariable("id") final int id, final Model model) {
     	model.addAttribute("genero", generoService.findById(id));
     	return "editarGenero";
     }
     
-    @PostMapping("/salvar")
+    @PostMapping("/genero/salvar")
     public String saveGenero(final Genero genero) {
     	generoService.updateGenero(genero);
-    	return "redirect:/genero";
+    	return "redirect:/";
     }
     
-    @GetMapping("/deletar/{id}")
+    @GetMapping("/genero/deletar/{id}")
     public String deleteGenero(@PathVariable("id") final int id) {
     	generoService.deleteGenero(id);
     	return "redirect:/genero";
