@@ -48,7 +48,7 @@ public class GeneroController {
     @GetMapping("/genero/deletar/{id}")
     public String deleteGenero(@PathVariable("id") final int id) {
     	generoService.deleteGenero(id);
-    	return "redirect:/genero";
+    	return "redirect:/";
     }
 	
 }
